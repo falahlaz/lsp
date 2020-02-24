@@ -1,0 +1,2 @@
+<!-- <label for="no">Nomor</label>
+<input type="text" disabled class="form-control" id="no_cluster" value="Klaster {{$data->no_cluster}}"> -->
