@@ -57,8 +57,6 @@ class PrintController extends Controller
         $data['asesor']         = User::where('id', $id_asesor)->first();
 
         return view('admin.participant.printApl02', compact('data'));
-        // $pdf = PDF::loadView('admin.participant.printApl02', compact('data'));
-    	// return $pdf->download('Form APL-02 '."{$data['participant']->registration->nama_lengkap}".'.pdf');
     }
 
     // fungsi merubah nama hari
