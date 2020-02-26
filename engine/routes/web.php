@@ -33,6 +33,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
     Route::post('participant/finish', 'ParticipantController@finish')->name('participant.finish');
     Route::resource('element', 'ElementController');
     Route::resource('question', 'QuestionController');
+    Route::resource('school', 'SchoolController');
     Route::get('print/{id_participant}', 'PrintController@printAssignment')->name('print.assignment');
     Route::get('print/apl/02/{id_participant}/{id_cluster}/{id_asesor}', 'PrintController@printForm')->name('print.form');
 });

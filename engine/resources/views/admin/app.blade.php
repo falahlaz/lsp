@@ -117,6 +117,13 @@
                             <!-- <li><i class="fa fa-plus"></i><a href="{{route('admin.competency.create')}}">Tambah Data</a></li> -->
                         </ul>
                     </li>
+                    <li class="menu-item-has-children dropdown {{request()->is('admin/school') ? 'active' : ''}}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-building"></i>Daftar Sekolah</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-eye"></i><a href="{{route('admin.school.index')}}">Lihat Data</a></li>
+                            <!-- <li><i class="fa fa-plus"></i><a href="{{route('admin.school.create')}}">Tambah Data</a></li> -->
+                        </ul>
+                    </li>
                 </ul>
                 @elseif(Session::has('role') == 'asesor')
                 <ul class="nav navbar-nav">
@@ -139,6 +146,12 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-sitemap"></i>Unit Kompetensi</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-eye"></i><a href="{{route('admin.competency.index')}}">Lihat Data</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown {{request()->is('admin/school') ? 'active' : ''}}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-building"></i>Daftar Sekolah</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-eye"></i><a href="{{route('admin.school.index')}}">Lihat Data</a></li>
                         </ul>
                     </li>
                 </ul>
