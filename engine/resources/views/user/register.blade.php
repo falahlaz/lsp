@@ -108,7 +108,11 @@
                         </select>
                     </div>
 
-                    
+                    <div class="form-group">
+                        <label for="school">Kode Sekolah</label>
+                        <input type="password" id="school" name="kode_sekolah" class="form-control" required value="{{old('kode_sekolah')}}">
+                    </div>
+
                     <button type="button" class="next action-button float-right">
                         Selanjutnya
                     </button>   

@@ -69,6 +69,7 @@ class RegistantController extends Controller
         $no_kantor           = $request->no_kantor;
         $email               = $request->email;
         $pendidikan_terakhir = $request->pendidikan_terakhir;
+        $kode_sekolah        = $request->kode_sekolah;
 
         $nama_perusahaan     = $request->nama_perusahaan;
         $jabatan             = $request->jabatan;
@@ -167,6 +168,7 @@ class RegistantController extends Controller
             'no_kantor' => $no_kantor,
             'email' => $email,
             'pendidikan_terakhir' => $pendidikan_terakhir,
+            'kode_sekolah' => $kode_sekolah,
             'nama_perusahaan' => $nama_perusahaan,
             'jabatan' => $jabatan,
             'alamat_perusahaan' => $alamat_perusahaan,
@@ -218,7 +220,7 @@ class RegistantController extends Controller
     public function show($id)
     {
         // mengambil data registrasi, kompetensi dan asesor
-        $data['registrasi'] = Registration::where('id', $id)->with('cluster', 'participant')->first();
+        $data['registrasi'] = Registration::where('id', $id)->with('cluster', 'participant', 'school')->first();
         $data['kompetensi'] = Competence::where('id_klaster', $data['registrasi']->id_klaster)->get();
         $data['asesor']     = User::where([
                                     ['role' , 'asesor'],

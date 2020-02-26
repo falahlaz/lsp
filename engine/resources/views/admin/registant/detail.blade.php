@@ -57,6 +57,10 @@
             <label for="">Pendidikan Terakhir : </label>
             <input type="text" class="form-control" readonly value="{{$data['registrasi']->pendidikan_terakhir}}">
         </div>
+        <div class="form-group">
+            <label for="">Asal Sekolah : </label>
+            <input type="text" class="form-control" readonly value="{{$data['registrasi']->school->nama_sekolah}}">
+        </div>
 
 
         <h4>a. Data Pekerjaan Sekarang</h4>
