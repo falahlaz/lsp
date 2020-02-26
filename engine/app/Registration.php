@@ -50,4 +50,9 @@ class Registration extends Model
     {
         return $this->hasOne('App\Participant', 'id_registrasi');
     }
+
+    public function school()
+    {
+        return $this->belongsTo('App\School', 'kode_sekolah');
+    }
 }
