@@ -12,11 +12,20 @@
 
     <title>Register APL 02</title>
   </head>
-  <body>
-    
-
-    
+  <body>  
     <div class="container mt-3">
+        <p> <b>
+            Peserta diminta untuk:  
+            <br>
+            1.	Mempelajari Kriteria Unjuk Kerja  (KUK), Batasan Variabel, Panduan Penilaian, dan Aspek Kritis seluruh Unit Kompetensi yang diminta untuk di Ases.
+            <br>
+            2.	Melaksanakan Penilaian Mandiri secara obyektif atas sejumlah pertanyaan yang diajukan, bilamana Anda menilai diri sudah kompeten atas pertanyaan tersebut, tuliskan tanda  pada kolom (K), dan bilamana Anda menilai diri belum kompeten tuliskan tanda  pada kolom (BK).
+            <br>
+            3.	Mengisi bukti-bukti kompetensi yang relevan atas sejumlah pertanyaan yang dinyatakan Kompeten (bila ada). 
+            <br>
+            4.	Menandatangani form Asesmen Mandiri.
+            </b>
+        </p>
         <form action="{{route('admin.participant.apl02.store', ['id_participant' => $data['id_participant'], 'id_asesor' => $data['id_asesor']])}}" method="POST">
         @csrf
         @foreach($data['competence'] as $competence)

@@ -95,15 +95,41 @@ class ParticipantController extends Controller
         // mengambil nama pendaftar
         $name = $registration->select('nama_lengkap')->first();
 
-        // mengambil id participant
-        $id_participant  = Participant::select('id')->where('id_registrasi', $id_registrasi)->first();
+        // mengambil data participant
+        $data['participant']        = Participant::where('id_registrasi', $id_registrasi)->first();
+
+        $data['hari_mulai']         = date('l', strtotime($data['participant']->tanggal_mulai_asesi));
+        $data['tanggal_mulai']      = date('d', strtotime($data['participant']->tanggal_mulai_asesi));
+        $data['bulan_mulai']        = date('F', strtotime($data['participant']->tanggal_mulai_asesi));
+        $data['tahun_mulai']        = date('Y', strtotime($data['participant']->tanggal_mulai_asesi));
+        
+        $data['hari_selesai']       = date('l', strtotime($data['participant']->tanggal_selesai_asesi));
+        $data['tanggal_selesai']    = date('d', strtotime($data['participant']->tanggal_selesai_asesi));
+        $data['bulan_selesai']      = date('F', strtotime($data['participant']->tanggal_selesai_asesi));
+        $data['tahun_selesai']      = date('Y', strtotime($data['participant']->tanggal_selesai_asesi));
+
+        $data['bulan_mulai']        = $this->month($data['bulan_mulai']);
+        $data['bulan_selesai']      = $this->month($data['bulan_selesai']);
+        $data['hari_mulai']         = $this->day($data['hari_mulai']);
+        $data['hari_selesai']       = $this->day($data['hari_selesai']);
+
+        $data['tempat_asesi']       = $data['participant']->tempat_asesi;
 
         // mengambil input email
         $email = $request->email;
         // mengoper data ke view email
         $data = [
             'name' => $name,
-            'link' => route('user.register02', ['token' => $this->token($id_participant->id), 'id_cluster' => $id_cluster])
+            'hari_mulai' => $data['hari_mulai'],
+            'tanggal_mulai' => $data['tanggal_mulai'],
+            'bulan_mulai' => $data['bulan_mulai'],
+            'tahun_mulai' => $data['tahun_mulai'],
+            'hari_selesai' => $data['hari_selesai'],
+            'tanggal_selesai' => $data['tanggal_selesai'],
+            'bulan_selesai' => $data['bulan_selesai'],
+            'tahun_selesai' => $data['tahun_selesai'],
+            'tempat_asesi' => $data['tempat_asesi'],
+            'link' => route('user.register02', ['token' => $this->token($data['participant']->id), 'id_cluster' => $id_cluster])
         ];
         // kirim email ke pendaftar
         $this->sendEmail($data, $email);
@@ -239,5 +265,59 @@ class ParticipantController extends Controller
         ]);
 
         return redirect()->route('admin.participant.index')->with('success', 'true');
+    }
+
+    // fungsi merubah nama hari
+    public function day($day) 
+    {
+        if($day == 'Sunday') {
+            $day = 'Minggu';
+        } else if($day == 'Monday') {
+            $day = 'Senin';
+        } else if($day == 'Tuesday') {
+            $day = 'Selasa';
+        } else if($day == 'Wednesday') {
+            $day = 'Rabu';
+        } else if($day == 'Thursday') {
+            $day = 'Kamis';
+        } else if($day == 'Friday') {
+            $day = "Jum'at";
+        } else {
+            $day = "Sabtu";   
+        }
+
+        return $day;
+    }
+
+    //  fungsi merubah nama bulan
+    public function month($month)
+    {
+        if($month == 'January') {
+            $month = 'Januari';
+        } else if($month == 'February') {
+            $month = 'Februari';
+        } else if($month == 'March') {
+            $month = 'Maret';
+        } else if($month == 'April') {
+            $month = 'April';
+        } else if($month == 'May') {
+            $month = 'Mei';
+        } else if($month == 'June') {
+            $month = 'Juni';
+        } else if($month == 'July') {
+            $month = 'Juli';
+        } else if($month == 'August') {
+            $month = 'Agustus';
+        } else if($month == 'September') {
+            $month = 'September';
+        } else if($month == 'October') {
+            $month = 'Oktober';
+        } else if($month == 'November') {
+            $month = 'November';
+        } else {
+            $month = 'Desember';
+        }
+
+        return $month;
     }
 }

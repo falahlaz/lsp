@@ -57,6 +57,11 @@ class AuthController extends Controller
        return view('user.register', compact('data'));
    }
 
+   public function registerConfirm()
+   {
+        return view('user.confirmRegister');
+   }
+
    public function register02($id_cluster, $token)
    {
         // mengambil token dari url
@@ -97,7 +102,7 @@ class AuthController extends Controller
             'status' => 'in progress'
         ]);
 
-        return redirect()->route('user.register')->with('success', 'true');
+        return redirect()->route('user.register02.confirm')->with('success', 'true');
    }
 
    public function logout()

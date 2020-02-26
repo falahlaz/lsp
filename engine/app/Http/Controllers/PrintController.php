@@ -42,6 +42,8 @@ class PrintController extends Controller
         $data['bulan_selesai']      = $this->month($data['bulan_selesai']);
         $data['hari_mulai']         = $this->day($data['hari_mulai']);
         $data['hari_selesai']       = $this->day($data['hari_selesai']);
+
+        $data['tempat_asesi']       = $data['participant']->tempat_asesi;
         
         $pdf = PDF::loadView('admin.assessor.assignment', compact('data'));
     	return $pdf->download('Surat Tugas '."{$data['assessor']->nama_lengkap}".'.pdf');
@@ -73,7 +75,7 @@ class PrintController extends Controller
         } else if($day == 'Thursday') {
             $day = 'Kamis';
         } else if($day == 'Friday') {
-            $day = "Juma'at";
+            $day = "Jum'at";
         } else {
             $day = "Sabtu";   
         }

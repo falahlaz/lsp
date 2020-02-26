@@ -99,7 +99,13 @@
 
                     <div class="form-group">
                         <label for="education">Pendidikan Terakhir</label>
-                        <input type="text" id="education" name="pendidikan_terakhir" class="form-control" required placeholder="misal : SMK" value="{{old('pendidikan_terakhir')}}">
+                        <select name="pendidikan_terakhir" id="education" required class="form-control">
+                            <option value="">-- Pilih Jenjang Pendidikan --</option>
+                            <option value="SD">SD / Sederajat</option>
+                            <option value="SMP">SMP / Sederajat</option>
+                            <option value="SMA">SMA / Sederajat</option>
+                            <option value="SMK">SMK / Sederajat</option>
+                        </select>
                     </div>
 
                     

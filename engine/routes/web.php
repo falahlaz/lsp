@@ -43,3 +43,4 @@ Route::post('/loginPost', 'AuthController@loginPost')->name('user.login.post');
 Route::get('/register', 'AuthController@register')->name('user.register');
 Route::get('/register/apl/02/{id_cluster}/{token}', 'AuthController@register02')->name('user.register02');
 Route::post('/register/apl/02/{id_cluster}/{token}', 'AuthController@register02store')->name('user.register02.store');
+Route::get('/register/confirm', 'AuthController@registerConfirm')->name('user.register02.confirm');

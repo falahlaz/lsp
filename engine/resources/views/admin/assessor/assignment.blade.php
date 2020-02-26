@@ -65,7 +65,7 @@
                 <tr>
                     <td>Tempat</td>
                     <td style="width: 30px; text-align: center">:</td>
-                    <td>TUK LSP P1 SMK Negeri 26 Jakarta</td>
+                    <td>TUK LSP P1 {{$data['tempat_asesi']}}</td>
                 </tr>
             </table>
             
