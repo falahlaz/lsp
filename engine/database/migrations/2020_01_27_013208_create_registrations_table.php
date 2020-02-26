@@ -28,6 +28,7 @@ class CreateRegistrationsTable extends Migration
             $table->char('no_kantor', 20);
             $table->string('email', 255);
             $table->string('pendidikan_terakhir', 255);
+            $table->string('kode_sekolah', 10);
             $table->string('nama_perusahaan', 255);
             $table->string('jabatan', 255);
             $table->text('alamat_perusahaan');
