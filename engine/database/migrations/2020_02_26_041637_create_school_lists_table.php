@@ -14,8 +14,11 @@ class CreateSchoolListsTable extends Migration
     public function up()
     {
         Schema::create('school_lists', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->integer('id')->autoIncrement();
+            $table->string('kode_sekolah', 10);
+            $table->string('nama_sekolah', 255);
+            $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
