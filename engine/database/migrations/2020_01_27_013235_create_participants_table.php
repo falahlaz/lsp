@@ -18,6 +18,7 @@ class CreateParticipantsTable extends Migration
             $table->integer('id_registrasi');
             $table->integer('id_asesor');
             $table->integer('id_klaster');
+            $table->string('kode_sekolah', 10);
             $table->string('tempat_asesi', 255);
             $table->date('tanggal_mulai_asesi');
             $table->date('tanggal_selesai_asesi');

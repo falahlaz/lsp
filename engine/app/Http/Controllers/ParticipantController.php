@@ -57,6 +57,7 @@ class ParticipantController extends Controller
         $id_registrasi = $request->id_registrasi;
         $id_asesor     = $request->id_asesor;
         $id_cluster    = $request->id_cluster;
+        $kode_sekolah  = $request->kode_sekolah;
         $tempat_asesi  = $request->tempat_asesi;
         $tanggal_mulai_asesi     = $request->tanggal_mulai_asesi;
         $tanggal_selesai_asesi   = $request->tanggal_selesai_asesi;
@@ -73,6 +74,7 @@ class ParticipantController extends Controller
             'id_registrasi' => $id_registrasi,
             'id_asesor' => $id_asesor,
             'id_klaster' => $id_cluster,
+            'kode_sekolah' => $kode_sekolah,
             'tempat_asesi' => $tempat_asesi,
             'tanggal_mulai_asesi' => $tanggal_mulai_asesi,
             'tanggal_selesai_asesi' => $tanggal_selesai_asesi,
@@ -170,7 +172,7 @@ class ParticipantController extends Controller
         // mengambil data participant berdasarkan id
         // dan mengambil data relasi registrasi, asesor, klaster, dan jawaban asesor
         $data = Participant::where('id', $id)
-                            ->with('registration', 'asesor', 'cluster', 'assessorAnswer')
+                            ->with('registration', 'asesor', 'cluster', 'assessorAnswer', 'school')
                             ->first();
         
         return response()->json([

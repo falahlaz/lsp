@@ -52,4 +52,9 @@ class Participant extends Model
     {
         return $this->hasMany('App\AssessorAnswer', 'id_participant');
     }
+
+    public function school()
+    {
+        return $this->belongsTo('App\School', 'kode_sekolah', 'kode_sekolah');
+    }
 }

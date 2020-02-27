@@ -14,6 +14,11 @@ class School extends Model
 
     public function registration()
     {
-        return $this->hasMany('App\Registration', 'kode_sekolah');
+        return $this->hasMany('App\Registration', 'kode_sekolah', 'kode_sekolah');
+    }
+
+    public function participant()
+    {
+        return $this->hasMany('App\Participant', 'kode_sekolah', 'kode_sekolah');
     }
 }

@@ -380,6 +380,7 @@
                     <input type="hidden" name="email">
                     <input type="hidden" name="id_registrasi" value="{{$data['registrasi']->id}}">
                     <input type="hidden" name="id_cluster" value="{{$data['registrasi']->cluster->id}}">
+                    <input type="hidden" name="kode_sekolah" value="{{$data['registrasi']->school->kode_sekolah}}">
                     <div class="form-group">
                         <label>Tempat / Tgl. Asesi</label>
                         <input type="text" class="form-control" name="tempat_asesi" required placeholder="misal : SMK Negeri 26 Jakarta">
@@ -475,6 +476,10 @@
                         <input type="text" class="form-control" id="nama_peserta" name="nama_peserta" required readonly="readonly">
                     </div>
                     <div class="form-group">
+                        <label>Asal Sekolah</label>
+                        <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah" required readonly="readonly">
+                    </div>
+                    <div class="form-group">
                         <label>NIK</label>
                         <input type="text" class="form-control" id="nik" name="nik" required readonly="readonly">
                     </div>
@@ -562,11 +567,13 @@
                 dataType : 'json',
                 success : function(data) {
                     $.each(data, function(i, item) {
+                        console.log(item.registration)
                         $('#nama_asesor').val(item.asesor.nama_lengkap)
                         $('#tempat_asesi').val(item.tempat_asesi)
                         $('#tanggal_mulai_asesi').val(item.tanggal_mulai_asesi)
                         $('#tanggal_selesai_asesi').val(item.tanggal_selesai_asesi)
                         $('#nama_peserta').val(item.registration.nama_lengkap)
+                        $('#asal_sekolah').val(item.school.nama_sekolah)
                         $('#nik').val(item.registration.nik)
                         $('#emailParticpant').val(item.registration.email)
                         $('#no_telp').val(item.registration.no_hp)

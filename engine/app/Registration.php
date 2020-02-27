@@ -53,6 +53,6 @@ class Registration extends Model
 
     public function school()
     {
-        return $this->belongsTo('App\School', 'kode_sekolah');
+        return $this->belongsTo('App\School', 'kode_sekolah', 'kode_sekolah');
     }
 }

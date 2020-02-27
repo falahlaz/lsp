@@ -91,6 +91,10 @@
                                     <input type="text" class="form-control" id="nama_peserta" name="nama_peserta" required readonly="readonly">
                                 </div>
                                 <div class="form-group">
+                                    <label>Asal Sekolah</label>
+                                    <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah" required readonly="readonly">
+                                </div>
+                                <div class="form-group">
                                     <label>NIK</label>
                                     <input type="text" class="form-control" id="nik" name="nik" required readonly="readonly">
                                 </div>
@@ -167,6 +171,7 @@
                                 $('#tanggal_mulai_asesi').val(item.tanggal_mulai_asesi)
                                 $('#tanggal_selesai_asesi').val(item.tanggal_selesai_asesi)
                                 $('#nama_peserta').val(item.registration.nama_lengkap)
+                                $('#asal_sekolah').val(item.school.nama_sekolah)
                                 $('#nik').val(item.registration.nik)
                                 $('#email').val(item.registration.email)
                                 $('#no_telp').val(item.registration.no_hp)
