@@ -258,8 +258,8 @@
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a> -->
-
-                            <a class="nav-link" href="{{route('user.logout')}}"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="{{route('user.change.password')}}"><i class="fa fa-lock"></i>Change Password</a>
+                            <a class="nav-link" href="{{route('user.logout')}}"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
 

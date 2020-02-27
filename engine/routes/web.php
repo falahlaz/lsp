@@ -40,6 +40,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function()
 
 Route::get('/login', 'AuthController@login')->name('user.login');
 Route::get('/logout', 'AuthController@logout')->name('user.logout');
+Route::get('/change/password', 'AuthController@editPassword')->name('user.change.password');
+Route::put('/change/password', 'AuthController@updatePassword')->name('user.change.password.store');
 Route::post('/loginPost', 'AuthController@loginPost')->name('user.login.post');
 Route::get('/register', 'AuthController@register')->name('user.register');
 Route::get('/register/apl/02/{id_cluster}/{token}', 'AuthController@register02')->name('user.register02');

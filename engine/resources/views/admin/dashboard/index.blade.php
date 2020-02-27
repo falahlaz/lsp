@@ -87,5 +87,9 @@
         
         </div>
         <!-- .animated -->
-
+<script>
+    @if(Session::has('success'))
+        alert('Password berhasil diubah')
+    @endif
+</script>
 @endsection

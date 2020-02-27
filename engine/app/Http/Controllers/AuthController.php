@@ -49,21 +49,54 @@ class AuthController extends Controller
         }
     }
 
-   public function register()
-   {
+    public function editPassword()
+    {
+        if(!Session::get('user')) {
+            return redirect()->route('user.login');
+        } else {
+            $id = Session::get('userId');
+
+            return view('admin.dashboard.changePassword', compact('id'));
+        }
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $oldPassword = $request->password_lama;
+        $password    = $request->password;
+        $conPassword = $request->konfirmasi_password;
+
+        if($password !== $conPassword) {
+            return redirect()->route('user.change.password')->with('confirm', 'true')->withInput($request->all());
+        }
+
+        $currentPassword = User::where('id', \Session::get('userId'))->first();
+        if(!\Hash::check($oldPassword, $currentPassword->password)) {
+            return redirect()->route('user.change.password')->with('not match', 'true')->withInput($request->all());
+        }
+
+        User::where('id', \Session::get('userId'))->update([
+            'password' => bcrypt($password)
+        ]);
+
+        return redirect()->route('admin.dashboard.index')->with('success', 'true');
+    }
+
+    public function register()
+    {
         // mengambil data jurusan
         $data = Department::orderBy('nama_jurusan', 'ASC')->get();
 
-       return view('user.register', compact('data'));
-   }
+        return view('user.register', compact('data'));
+    }
 
-   public function registerConfirm()
-   {
+    public function registerConfirm()
+    {
         return view('user.confirmRegister');
-   }
+    }
 
-   public function register02($id_cluster, $token)
-   {
+    public function register02($id_cluster, $token)
+    {
         // mengambil token dari url
         $getToken   = Token::where('token', $token);
         $validToken = $getToken->first();
@@ -79,10 +112,10 @@ class AuthController extends Controller
         $data['id_cluster'] = $id_cluster;
 
         return view('user.register2', compact('data'));
-   }
+    }
 
-   public function register02store(Request $request, $id_cluster, $token)
-   {
+    public function register02store(Request $request, $id_cluster, $token)
+    {
         // mengambil data id_participant
         $id_participant = $request->id_participant;
 
@@ -103,12 +136,12 @@ class AuthController extends Controller
         ]);
 
         return redirect()->route('user.register02.confirm')->with('success', 'true');
-   }
+    }
 
-   public function logout()
-   {
-       // menghapus session
-       Session::flush();
-       return redirect()->route('user.login');
-   }
+    public function logout()
+    {
+        // menghapus session
+        Session::flush();
+        return redirect()->route('user.login');
+    }
 }
