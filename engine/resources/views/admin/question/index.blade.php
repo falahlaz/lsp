@@ -5,6 +5,7 @@
 @section('content')
 
             <link rel="stylesheet" href="{{URL::asset('public_html/__assets/css/lib/datatable/dataTables.bootstrap.min.css')}}">
+            <link rel="stylesheet" href="{{URL::asset('public_html/__assets/css/lib/chosen/chosen.min.css')}}">
 
             <div class="animated fadeIn">
                 <div class="row">
@@ -81,10 +82,10 @@
                         @csrf
                             <div class="form-group">
                                 <label>Element Kompetensi</label>
-                                <select class="form-control" required name="id_element_kompetensi">
-                                    <option value="">-- Select Element Kompetensi --</option>
+                                <select data-placeholder="Choose a Element Competency..." required name="id_element_kompetensi" class="standardSelect" tabindex="1">
+                                    <option value="" label="default"></option>
                                     @foreach($data['element'] as $element)
-                                    <option value="{{$element->id}}">{{$element->elemen_kompetensi}}</option>
+                                        <option value="{{$element->id}}">{{$element->elemen_kompetensi}} ({{$element->competency->kode_unit}})</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -123,10 +124,10 @@
                             <input type="hidden" id="id" value="">
                             <div class="form-group">
                                 <label>Element Kompetensi</label>
-                                <select class="form-control" required name="id_element_kompetensi" id="id_element_kompetensi">
-                                    <option value="">-- Select Element Kompetensi --</option>
+                                <select data-placeholder="Choose a Element Competency..." required name="id_element_kompetensi" id="id_element_kompetensi" class="standardSelect" tabindex="1">
+                                    <option value="" label="default"></option>
                                     @foreach($data['element'] as $element)
-                                    <option value="{{$element->id}}">{{$element->elemen_kompetensi}}</option>
+                                        <option value="{{$element->id}}">{{$element->elemen_kompetensi}} ({{$element->competency->kode_unit}})</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -159,6 +160,7 @@
 <script src="{{URL::asset('public_html/__assets/js/lib/data-table/buttons.print.min.js')}}"></script>
 <script src="{{URL::asset('public_html/__assets/js/lib/data-table/buttons.colVis.min.js')}}"></script>
 <script src="{{URL::asset('public_html/__assets/js/init/datatables-init.js')}}"></script>
+<script src="{{URL::asset('public_html/__assets/js/lib/chosen/chosen.jquery.min.js')}}"></script>
 <script>
     // @if(Session::has('success'))
     //     alert('Daftar Pertanyaan berhasil di tambah!')
@@ -170,6 +172,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#bootstrap-data-table-export').DataTable();
+        $(".standardSelect").chosen({
+            disable_search_threshold: 10,
+            no_results_text: "Oops, nothing found!",
+            width: "100%"
+        });
     });
 
     function getEdit(e) {
@@ -184,7 +191,7 @@
                 // console.log(data)
                 $.each(data, function(i, item) {
                     $('#id').val(item.id)
-                    $('#id_element_kompetensi').val(item.id_elemen_kompetensi)
+                    $('#id_element_kompetensi').val(item.id_elemen_kompetensi).trigger('chosen:updated')
                     $('#no_kuk').val(item.no_kuk)
                     $('#daftar_pertanyaan').val(item.daftar_pertanyaan)
                 })

@@ -23,8 +23,8 @@ class QuestionController extends Controller
             return redirect()->route('user.login');
         } else {
             // mengambil data pertanyaan dan elemen kompetensi
-            $data['question'] = Question::orderBy('id_elemen_kompetensi', 'ASC')->get();
-            $data['element']  = Element::orderBy('id_kompetensi', 'ASC')->get();
+            $data['question']   = Question::orderBy('id_elemen_kompetensi', 'ASC')->get();
+            $data['element']    = Element::orderBy('id_kompetensi', 'ASC')->get();
 
             return view('admin.question.index', compact('data'));
         }
