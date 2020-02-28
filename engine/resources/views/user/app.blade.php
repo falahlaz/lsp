@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link rel="shortcut icon" href="{{asset('public_html/__images/logo-login.png')}}">
     
     <title>@yield('title')</title>
 

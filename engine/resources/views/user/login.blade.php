@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="{{asset('public_html/__assets/css/login.css')}}">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link rel="shortcut icon" href="{{asset('public_html/__images/logo-login.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
