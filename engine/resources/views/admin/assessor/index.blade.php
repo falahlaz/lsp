@@ -108,10 +108,6 @@
                     <label>Password</label>
                     <input type="password" class="form-control" name="password" required autocomplete="off" placeholder="Password">
                 </div>
-                <div class="form-group no_reg">
-                    <label>No Reg</label>
-                    <input type="text" class="form-control addNoReg" name="no_reg" autocomplete="off" placeholder="No Reg">
-                </div>
                 <div class="form-group">
                     <label>Role</label>
                     <select class="form-control role" name="role" required onchange="changeRole(this)">
@@ -119,6 +115,10 @@
                         <option value="admin">Admin</option>
                         <option value="asesor">Assesor</option>
                     </select>
+                </div>
+                <div class="form-group no_reg">
+                    <label>No Reg</label>
+                    <input type="text" class="form-control addNoReg" name="no_reg" autocomplete="off" placeholder="No Reg">
                 </div>
                 <div class="form-group jurusan">
                     <label>Jurusan</label>
@@ -162,10 +162,6 @@
                     <label for="email">Email address</label>
                     <input type="email" class="form-control" name="email" required autocomplete='off' id="email" placeholder="Enter email">
                 </div>
-                <div class="form-group editNoReg">
-                    <label for="no_reg">No Reg</label>
-                    <input type="text" class="form-control" name="no_reg" autocomplete='off' id="no_reg" placeholder="No Reg">
-                </div>
                 <div class="form-group">
                     <label for="role">Role</label>
                     <select class="form-control role" id="role" name="role" required onchange="changeRole(this)">
@@ -173,6 +169,10 @@
                         <option value="admin">Admin</option>
                         <option value="asesor">Assesor</option>
                     </select>
+                </div>
+                <div class="form-group editNoReg">
+                    <label for="no_reg">No Reg</label>
+                    <input type="text" class="form-control" name="no_reg" autocomplete='off' id="no_reg" placeholder="No Reg">
                 </div>
                 <div class="form-group editJurusan">
                     <label>Jurusan</label>
