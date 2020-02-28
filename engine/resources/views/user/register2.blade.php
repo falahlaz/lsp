@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link rel="shortcut icon" href="{{asset('public_html/__images/logo-login.png')}}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -17,6 +17,8 @@
 
     
     <div class="container mt-3">
+        <h2>FR-APL-02. ASESMEN MANDIRI</h2>
+        <br>
         <p> <b>
             Peserta diminta untuk:  
             <br>
@@ -34,7 +36,7 @@
         <input type="hidden" name="id_participant" value="{{$data['user']->id_participant}}">
         @foreach($data['competence'] as $competence)
         @if(!$competence->element->isEmpty())
-        <table class="table table-bordered text-center table-primary">
+        <table class="table table-bordered text-center mt-5 table-primary">
             <thead>
                 <tr>
                     <th rowspan="2" style="line-height: 100px;">Uji Kompetensi No. {{$loop->iteration}}</th>
@@ -51,11 +53,11 @@
         </table>
         @endif
         @foreach($competence->element as $element)
-        <table class="table table-bordered text-center mt-5 table-dark">
+        <table class="table table-bordered text-left mt-2 table-dark">
             <thead>
                 <tr>
                     <th>Elemen Kompetensi</th>
-                    <th>:</th>
+                    <th style="text-align: center;">:</th>
                     <th>{{$loop->iteration}}. {{$element->elemen_kompetensi}}</th>
                 </tr>
             </thead>
@@ -77,7 +79,7 @@
                 @foreach($element->question as $question)
                 <tr>
                     <th>{{$question->no_kuk}}</th>
-                    <td>{{$question->daftar_pertanyaan}}</td>
+                    <td width="80%">{{$question->daftar_pertanyaan}}</td>
                     <td><input type="radio" required name="penilaian[{{$question->id}}]" value="K"></td>
                     <td><input type="radio" required name="penilaian[{{$question->id}}]" value="BK"></td>
                 </tr>

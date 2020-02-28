@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link rel="shortcut icon" href="{{asset('public_html/__images/logo-login.png')}}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -14,6 +14,7 @@
   </head>
   <body>  
     <div class="container mt-3">
+        <h2>FR-APL-02. ASESMEN MANDIRI</h2>
         <p> <b>
             Peserta diminta untuk:  
             <br>
@@ -30,7 +31,7 @@
         @csrf
         @foreach($data['competence'] as $competence)
         @if(!$competence->element->isEmpty())
-        <table class="table table-bordered text-center table-primary">
+        <table class="table table-bordered text-center mt-5 table-primary">
             <thead>
                 <tr>
                     <th rowspan="2" style="line-height: 100px;">Uji Kompetensi No. {{$loop->iteration}}</th>
@@ -47,11 +48,11 @@
         </table>
         @endif
         @foreach($competence->element as $element)
-        <table class="table table-bordered text-center mt-5 table-dark">
+        <table class="table table-bordered text-left mt-2 table-dark">
             <thead>
                 <tr>
                     <th>Elemen Kompetensi</th>
-                    <th>:</th>
+                    <th style="text-align: center;">:</th>
                     <th>{{$loop->iteration}}. {{$element->elemen_kompetensi}}</th>
                 </tr>
             </thead>
@@ -77,7 +78,7 @@
                 @foreach($element->question as $question)
                 <tr>
                     <th>{{$question->no_kuk}}</th>
-                    <td>{{$question->daftar_pertanyaan}}</td>
+                    <td width="65%">{{$question->daftar_pertanyaan}}</td>
                     @foreach($data['answer'] as $answer)
                         @if($answer->id_pertanyaan == $question->id)
                             @if($answer->jawaban == 'K')
@@ -113,6 +114,15 @@
         </table>
         @endforeach
         @endforeach
+        <div class="row form-group">
+            <div class="col col-md-9">
+                <div class="form-check-inline form-check">
+                    <label for="check" class="form-check-label">
+                        <input type="checkbox" id="check" name="check" value="on" class="form-check-input">Check All Form
+                    </label>
+                </div>
+            </div>
+        </div>
         @if($data['status']->status === 'in progress' && $data['asesor_answer']->isEmpty())
         <div class="text-right">
             <button class="btn btn-primary">Submit</button>
@@ -128,8 +138,14 @@
         <br><br>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpatd.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+        $("#check").click(function(){
+            $('input:checkbox').not(this).prop('checked', this.checked);
+        });
+    </script>
   </body>
 </html>

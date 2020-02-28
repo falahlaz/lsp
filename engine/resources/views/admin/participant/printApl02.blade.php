@@ -70,7 +70,7 @@
         <form action="" method="POST">
         @foreach($data['competence'] as $competence)
         @if(!$competence->element->isEmpty())
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered mt-4 text-center">
             <thead>
                 <tr>
                     <th rowspan="2" style="line-height: 100px;">Uji Kompetensi No. {{$loop->iteration}}</th>
@@ -87,7 +87,7 @@
         </table>
         @endif
         @foreach($competence->element as $element)
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered mt-2 text-center">
             <thead>
                 <tr>
                     <th>Elemen Kompetensi</th>
@@ -112,7 +112,7 @@
                 @foreach($element->question as $question)
                 <tr>
                     <th>{{$question->no_kuk}}</th>
-                    <td>{{$question->daftar_pertanyaan}}</td>
+                    <td width="80%">{{$question->daftar_pertanyaan}}</td>
                     @foreach($data['answer'] as $answer)
                         @if($answer->id_pertanyaan == $question->id)
                             @if($answer->jawaban == 'K')
