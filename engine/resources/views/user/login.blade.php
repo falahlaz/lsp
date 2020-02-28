@@ -20,7 +20,7 @@
                 <p>Silahkan login untuk dapat <br> melanjutkan</p>
             </div>
             <div class="two">
-                <img src="{{asset('public_html/__images/logo.png')}}" alt="Logo" class="logo">
+                <img src="{{asset('public_html/__images/logo-login.png')}}" alt="Logo" class="logo">
             </div>
         </div>
 
