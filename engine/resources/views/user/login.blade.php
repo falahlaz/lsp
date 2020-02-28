@@ -38,8 +38,8 @@
                     </div>
                     <button class="btn">LOGIN</button>
                 </form>
-                <hr>    
-                <p>Tidak memiliki akun? <a href="#">Daftar</a></p>
+                <!-- <hr>     -->
+                <!-- <p>Tidak memiliki akun? <a href="#">Daftar</a></p> -->
             </div>
         </div>
 
