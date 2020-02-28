@@ -49,7 +49,7 @@
                                 @else
                                 <td>{{$user->department->nama_jurusan}}</td>
                                 @endif
-                                @if(Session::get('role') == 'admin')
+                                @if(Session::get('role') == 'admin' && $user->role == 'asesor')
                                 <td class="d-flex justify-content-center">
                                     <button type="button" data-id="{{$user->id}}" onclick="getEdit(this)" class="btn btn-primary btn-sm mr-2" data-toggle="modal" data-target="#EditData">
                                         Edit
@@ -65,6 +65,8 @@
                                         </button>
                                      </form>
                                 </td>
+                                @else
+                                <td></td>
                                 @endif
                             </tr>
                         @endforeach

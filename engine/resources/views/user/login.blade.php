@@ -1,35 +1,51 @@
-@extends('user.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{asset('public_html/__assets/css/login.css')}}">
+    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
+<body>
 
-@section('title', 'Login')
 
-@section('content')
-<div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form id="msform" method="post" action="{{route('user.login.post')}}">
-                @csrf
-                <fieldset>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="misal: smkn26jkt@gmail.com" required>
-                    </div>
+    <div class="container-login">
 
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="misal: password" required>
-                    </div>
-                    
-                    <button type="submit" class=" btn btn-primary btn-sm float-right">
-                        Login
-                    </button>
-                </fieldset>
-            </form>
+        <div class="row jus-between align-center" style="margin-bottom: 35px;">
+            <div class="one">
+                <h1>Selamat Datang di LSP <br> SMKN 26 Jakarta</h1>
+                <p>Silahkan login untuk dapat <br> melanjutkan</p>
+            </div>
+            <div class="two">
+                <img src="{{asset('public_html/__images/logo-login.png')}}" alt="Logo" class="logo">
+            </div>
         </div>
-    </div>
 
-<script>
-    @if(Session::has('error'))
-        alert('Email / Password Salah!')
-    @endif
-</script>
-@endsection
+        <div class="row">
+            <div class="one" style="width: 100%; text-align: center;">
+                <form method="post" action="{{route('user.login.post')}}">
+                    @csrf
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" required>
+                        <label for="username" class="form-label">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" required>
+                        <label for="password" class="form-label">Password</label>
+                    </div>
+                    <button class="btn">LOGIN</button>
+                </form>
+                <hr>    
+                <p>Tidak memiliki akun? <a href="#">Daftar</a></p>
+            </div>
+        </div>
+
+
+    </div>
+    
+    
+</body>
+</html>
