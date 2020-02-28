@@ -9,8 +9,11 @@ class Participant extends Model
     protected $fillable = [
         'id_registrasi',
         'id_asesor',
+        'id_klaster',
+        'kode_sekolah',
         'tempat_asesi',
-        'tanggal_asesi',
+        'tanggal_mulai_asesi',
+        'tanggal_selesai_asesi',
         'ket_bukti_kelengkapan_persyaratan_1',
         'ket_bukti_kelengkapan_persyaratan_2',
         'ket_bukti_kelengkapan_persyaratan_3',

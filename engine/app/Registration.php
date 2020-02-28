@@ -20,6 +20,7 @@ class Registration extends Model
         'no_kantor',
         'email',
         'pendidikan_terakhir',
+        'kode_sekolah',
         'nama_perusahaan',
         'jabatan',
         'alamat_perusahaan',
