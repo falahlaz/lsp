@@ -20,7 +20,7 @@
                 <p>Silahkan login untuk dapat <br> melanjutkan</p>
             </div>
             <div class="two">
-                <img src="{{asset('public_html/__images/logo-login.png')}}" alt="Logo" class="logo">
+                <img src="{{asset('public_html/__images/logo.png')}}" alt="Logo" class="logo">
             </div>
         </div>
 
@@ -29,11 +29,11 @@
                 <form method="post" action="{{route('user.login.post')}}">
                     @csrf
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" required>
-                        <label for="username" class="form-label">Email</label>
+                        <input type="text" class="form-control" name="email" required autocomplete="off">
+                        <label for="password" class="form-label">Email</label>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" required>
+                        <input type="password" class="form-control" name="password" required autocomplete="off">
                         <label for="password" class="form-label">Password</label>
                     </div>
                     <button class="btn">LOGIN</button>

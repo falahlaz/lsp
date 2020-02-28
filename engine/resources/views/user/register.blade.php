@@ -3,17 +3,19 @@
 @section('title', 'Register')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <form method="post" action="{{route('admin.registant.store')}}" enctype="multipart/form-data" id="msform">
             @csrf
 
             <fieldset>
-                <h3 class="font-weight-bold">FR-APL-01</h3>
-                <h4 class="text-uppercase">Permohonan Sertifikasi Kompetensi</h4>
+                <h3>FR-APL-01</h3>
+                <p>Permohonan Sertifikasi Kompetensi</p>
                 
                 <button type="button" class="next action-button float-right">
-                    Next
+                    Selanjutnya
                 </button>
             </fieldset>
 
@@ -26,7 +28,7 @@
                 <button type="button" class="next action-button float-right">
                     Selanjutnya
                 </button>   
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset>
@@ -116,7 +118,7 @@
                     <button type="button" class="next action-button float-right">
                         Selanjutnya
                     </button>   
-                    <button type="button" class="previous action-button-previous float-right">
+                    <button type="button" class="previous action-button float-right">
                         Sebelumnya
                     </button>  
             </fieldset>
@@ -155,7 +157,7 @@
                     <button type="button" class="next action-button float-right">
                         Selanjutnya
                     </button>   
-                    <button type="button" class="previous action-button-previous float-right">
+                    <button type="button" class="previous action-button float-right">
                         Sebelumnya
                     </button> 
 
@@ -170,7 +172,7 @@
                 <button type="button" class="next action-button float-right">
                     Selanjutnya
                 </button>
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset>
@@ -230,7 +232,7 @@
                 <button type="button" class="next action-button float-right">
                     Selanjutnya
                 </button>   
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset>
@@ -243,7 +245,7 @@
                 <button type="button" class="next action-button float-right">
                     Selanjutnya
                 </button>   
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset>
@@ -269,7 +271,7 @@
                 <button type="button" class="next action-button float-right">
                     Selanjutnya
                 </button>
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset>
@@ -301,7 +303,7 @@
                 <button onclick="validate()" type="submit" class="action-button float-right">
                     Submit
                 </button>   
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset>
@@ -330,7 +332,7 @@
                 <button type="button" class="next action-button float-right">
                     Selanjutnya
                 </button>   
-                <button type="button" class="previous action-button-previous float-right">
+                <button type="button" class="previous action-button float-right">
                     Sebelumnya
                 </button>
             </fieldset> -->
@@ -339,6 +341,7 @@
        
     </div>
 </div>
+<br><br>
 @endsection
 @section('script')
 <script>
