@@ -21,6 +21,7 @@ class PrintController extends Controller
         // mengambil data participant berdasarkan id participant
         // dan menyiapkan data untuk surat tugas
         $data['participant']        = Participant::find($id_participant);
+        $data['id_participant']     = $id_participant;
         $data['assessor']           = $data['participant']->asesor;
         
         $data['hari_mulai']         = date('l', strtotime($data['participant']->tanggal_mulai_asesi));

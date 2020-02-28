@@ -22,7 +22,7 @@
         <img class="header" src="{{asset('public_html/__images/surat_tugas/header1.png')}}">
         <div class="content">
             <br><br>
-            <p>Nomor        : No. 48 /SKK/LSP SMKN 26 JKT/2019 <br>
+            <p>Nomor        : No. {{$data['participant']}} /SKK/LSP SMKN 26 JKT/2019 <br>
             Lampiran        : - <br>
             Perihal         : Permohonan Asesor Kompetensi</p>
             <br>
