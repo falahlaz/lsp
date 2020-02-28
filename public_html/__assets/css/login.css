@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.23), rgba(0,0,0,0.23)), url('img/samson-ZGjbiukp_-A-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
+
+.container-login {
+    width: 60%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: 12px;
+    padding: 3em;
+    position: relative;
+}
+
+.logo {
+    width: 180px;
+    position: absolute;
+    top: 0.8em  ;
+    right: 2em;
+}
+
+.row {
+    display: flex;
+}
+
+.flex-dir-column {
+    flex-direction: column;
+}
+
+.jus-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.form-label {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: #CFCFCF;
+    font-size: 14px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.form-control {
+    width: 100%;
+    padding: .8em;
+    border: 1px solid #C7C7C7;
+    border-radius: 12px;
+}
+
+.form-control:focus {
+    outline: none;
+}
+
+.form-control:focus {
+    border: 1px solid #1a73e8;
+}
+
+.form-control:focus + .form-label,
+.form-control:valid + .form-label {
+    transform: translateY(-220%);
+    left: 0;
+    font-size: 12px;
+    color: #1a73e8;
+}
+
+
+h1 {
+    font-size: 18px;
+    color: #418AC9;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 14px;
+    color: #CFCFCF;
+}
+
+.btn {
+    background-color: #418AC9;
+    width: 40%;
+    padding: .8em;
+    border: none;
+    color: white;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.16);
+    border-radius: 12px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3D7DB4;
+}
+
+hr {
+    margin: 50px auto 30px;
+    width: 40%;
+    border: 1px solid #DCDCDC;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media(max-width: 720px) {
+    .container-login {
+        width: 90%;
+    }
+}
+
+@media(max-width: 450px) {
+    .logo {
+        display: none;
+    }
+}
